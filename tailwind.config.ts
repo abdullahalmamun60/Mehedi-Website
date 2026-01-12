@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['"Playfair Display"', 'Georgia', 'serif'],
-        body: ['Raleway', 'system-ui', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -43,6 +43,10 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
+        burgundy: {
+          DEFAULT: "hsl(var(--burgundy))",
+          foreground: "hsl(var(--burgundy-foreground))",
+        },
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -52,19 +56,19 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         gold: {
-          light: "hsl(42 80% 65%)",
-          DEFAULT: "hsl(42 70% 55%)",
-          dark: "hsl(35 70% 45%)",
+          light: "hsl(45 80% 65%)",
+          DEFAULT: "hsl(45 63% 52%)",
+          dark: "hsl(35 70% 42%)",
         },
         cream: {
-          light: "hsl(35 30% 97%)",
-          DEFAULT: "hsl(35 25% 92%)",
-          dark: "hsl(35 20% 85%)",
+          light: "hsl(33 55% 98%)",
+          DEFAULT: "hsl(33 50% 96%)",
+          dark: "hsl(33 40% 90%)",
         },
         mehendi: {
-          light: "hsl(25 45% 35%)",
-          DEFAULT: "hsl(25 55% 25%)",
-          dark: "hsl(25 60% 18%)",
+          light: "hsl(25 45% 40%)",
+          DEFAULT: "hsl(25 50% 32%)",
+          dark: "hsl(25 55% 22%)",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

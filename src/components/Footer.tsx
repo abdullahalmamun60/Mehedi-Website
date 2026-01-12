@@ -1,97 +1,143 @@
-import { Instagram, Facebook, Phone } from "lucide-react";
+import { motion } from "framer-motion";
+import { Instagram, Facebook, Phone, Heart } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-10">
+    <footer className="bg-primary text-primary-foreground relative overflow-hidden">
+      {/* Decorative pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full border border-secondary" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 rounded-full border border-secondary" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Main Footer Content */}
+        <div className="grid md:grid-cols-4 gap-8 py-12 md:py-16">
           {/* Brand */}
-          <div>
-            <h3 className="font-heading text-2xl font-semibold mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="md:col-span-2"
+          >
+            <h3 className="font-heading text-2xl md:text-3xl font-semibold mb-4">
               <span className="text-secondary">✦</span> Mehendi by Fatima
             </h3>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed">
-              Bringing traditional Bangladeshi Mehendi art to life. Creating
-              beautiful memories for your special occasions.
+            <p className="text-primary-foreground/70 text-sm leading-relaxed max-w-md mb-6">
+              Bringing traditional South Asian Mehendi art to life. Creating
+              beautiful memories for your weddings, festivals, and special
+              occasions with love and artistry.
             </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">
-              Quick Links
-            </h4>
-            <ul className="space-y-2">
-              {["Home", "Gallery", "Services", "About", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <a
-                      href={`#${link.toLowerCase()}`}
-                      className="text-primary-foreground/70 text-sm hover:text-secondary transition-colors"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">
-              Contact Us
-            </h4>
-            <div className="space-y-3 text-sm">
-              <p className="text-primary-foreground/70">
-                <strong className="text-primary-foreground">Phone:</strong>{" "}
-                +880 1712-345678
-              </p>
-              <p className="text-primary-foreground/70">
-                <strong className="text-primary-foreground">Email:</strong>{" "}
-                fatima@mehendi.com
-              </p>
-              <p className="text-primary-foreground/70">
-                <strong className="text-primary-foreground">Location:</strong>{" "}
-                Dhaka, Bangladesh
-              </p>
-            </div>
-
-            {/* Social */}
-            <div className="flex gap-3 mt-4">
+            {/* Social Links */}
+            <div className="flex gap-3">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary/20 transition-colors"
+                className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary/30 transition-colors group"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary/20 transition-colors"
+                className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary/30 transition-colors group"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="tel:+8801712345678"
-                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary/20 transition-colors"
+                className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary/30 transition-colors group"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 group-hover:scale-110 transition-transform" />
               </a>
             </div>
-          </div>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h4 className="font-heading text-lg font-semibold mb-5 text-secondary">
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              {["Home", "Gallery", "Services", "About", "Contact"].map((link) => (
+                <li key={link}>
+                  <a
+                    href={`#${link.toLowerCase()}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(`#${link.toLowerCase()}`);
+                    }}
+                    className="text-primary-foreground/70 text-sm hover:text-secondary transition-colors inline-flex items-center group"
+                  >
+                    <span className="w-0 group-hover:w-2 h-px bg-secondary mr-0 group-hover:mr-2 transition-all" />
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h4 className="font-heading text-lg font-semibold mb-5 text-secondary">
+              Contact Us
+            </h4>
+            <div className="space-y-3 text-sm">
+              <p className="text-primary-foreground/70">
+                <span className="text-primary-foreground font-medium">Phone:</span>{" "}
+                <a href="tel:+8801712345678" className="hover:text-secondary transition-colors">
+                  +880 1712-345678
+                </a>
+              </p>
+              <p className="text-primary-foreground/70">
+                <span className="text-primary-foreground font-medium">Email:</span>{" "}
+                <a href="mailto:fatima@mehendi.com" className="hover:text-secondary transition-colors">
+                  fatima@mehendi.com
+                </a>
+              </p>
+              <p className="text-primary-foreground/70">
+                <span className="text-primary-foreground font-medium">Location:</span>{" "}
+                Dhaka, Bangladesh
+              </p>
+              <p className="text-primary-foreground/50 text-xs mt-4">
+                Home service available across the city
+              </p>
+            </div>
+          </motion.div>
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-primary-foreground/10 pt-6 text-center">
-          <p className="text-primary-foreground/50 text-sm">
-            © {currentYear} Mehendi by Fatima. All rights reserved.
-          </p>
+        {/* Bottom Bar */}
+        <div className="border-t border-primary-foreground/10 py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <p className="text-primary-foreground/50 text-sm text-center md:text-left">
+              © {currentYear} Mehendi by Fatima. All rights reserved.
+            </p>
+            <p className="text-primary-foreground/50 text-sm flex items-center gap-1">
+              Crafted with <Heart className="w-3 h-3 text-burgundy fill-burgundy" /> in Bangladesh
+            </p>
+          </div>
         </div>
       </div>
     </footer>
