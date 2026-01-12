@@ -55,7 +55,7 @@ const Header = () => {
               isScrolled ? "text-primary" : "text-cream-light"
             }`}
           >
-            <span className="text-secondary">✦</span> Mehendi by Fatima
+            <span className="text-secondary">✦</span> Mehedi by Bristi
           </a>
 
           {/* Desktop Navigation */}

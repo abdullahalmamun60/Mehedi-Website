@@ -68,18 +68,27 @@ const galleryItems = [
   },
 ];
 
+const ITEMS_PER_PAGE = 8;
+
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedImage, setSelectedImage] = useState<typeof galleryItems[0] | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredItems =
     activeCategory === "All"
       ? galleryItems
       : galleryItems.filter((item) => item.category === activeCategory);
 
+  const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+
+  const paginatedItems = filteredItems.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
   return (
     <section id="gallery" className="py-20 md:py-28 bg-background relative overflow-hidden">
-      {/* Background pattern */}
       <div className="absolute inset-0 bg-pattern-overlay opacity-50" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -114,7 +123,10 @@ const Gallery = () => {
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => {
+                setActiveCategory(category);
+                setCurrentPage(1);
+              }}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeCategory === category
                   ? "bg-gold-gradient text-secondary-foreground shadow-gold-glow"
@@ -129,7 +141,7 @@ const Gallery = () => {
         {/* Masonry Gallery Grid */}
         <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 md:gap-6">
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => (
+            {paginatedItems.map((item, index) => (
               <motion.div
                 key={item.id}
                 layout
@@ -143,7 +155,15 @@ const Gallery = () => {
                   className="group relative overflow-hidden rounded-xl shadow-card cursor-pointer"
                   onClick={() => setSelectedImage(item)}
                 >
-                  <div className={index % 3 === 0 ? "aspect-[3/4]" : index % 3 === 1 ? "aspect-square" : "aspect-[4/3]"}>
+                  <div
+                    className={
+                      index % 3 === 0
+                        ? "aspect-[3/4]"
+                        : index % 3 === 1
+                        ? "aspect-square"
+                        : "aspect-[4/3]"
+                    }
+                  >
                     <img
                       src={item.image}
                       alt={item.title}
@@ -169,19 +189,55 @@ const Gallery = () => {
                       </p>
                     </motion.div>
 
-                    {/* Zoom Icon */}
                     <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-gold/20 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <ZoomIn className="w-5 h-5 text-cream" />
                     </div>
                   </div>
 
-                  {/* Gold border on hover */}
                   <div className="absolute inset-0 border-2 border-transparent group-hover:border-gold/50 rounded-xl transition-all duration-300" />
                 </div>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center gap-2 mt-12">
+            <button
+              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 rounded-full text-sm font-medium bg-card text-muted-foreground border border-border hover:bg-secondary/10 hover:text-primary transition disabled:opacity-50"
+            >
+              Prev
+            </button>
+
+            {Array.from({ length: totalPages }).map((_, i) => {
+              const page = i + 1;
+              return (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`w-10 h-10 rounded-full text-sm font-medium transition-all ${
+                    currentPage === page
+                      ? "bg-gold-gradient text-secondary-foreground shadow-gold-glow"
+                      : "bg-card text-muted-foreground border border-border hover:bg-secondary/10 hover:text-primary"
+                  }`}
+                >
+                  {page}
+                </button>
+              );
+            })}
+
+            <button
+              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 rounded-full text-sm font-medium bg-card text-muted-foreground border border-border hover:bg-secondary/10 hover:text-primary transition disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Lightbox Dialog */}

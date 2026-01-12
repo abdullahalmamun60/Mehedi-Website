@@ -84,12 +84,12 @@ const Hero = () => {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20 text-center">
+      <div className="relative z-10 container mx-auto px-4 py-20 text-start">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="max-w-4xl mx-auto"
+          className=""
         >
           {/* Decorative Element */}
           <motion.div
@@ -104,32 +104,34 @@ const Hero = () => {
           </motion.div>
 
           {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-gold font-medium tracking-[0.3em] uppercase text-xs md:text-sm mb-6"
-          >
-            Traditional South Asian Mehendi Art
-          </motion.p>
+         <div className="max-w-4xl">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-gold font-medium tracking-[0.3em] uppercase text-xs md:text-sm mb-6"
+            >
+              Traditional South Asian Mehendi Art
+            </motion.p>
 
-          {/* Main Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="font-heading text-4xl md:text-6xl lg:text-7xl font-semibold text-cream-light leading-tight mb-6"
-          >
-            Where Tradition Meets{" "}
-            <span className="italic text-gradient-gold">Artistry</span>
-          </motion.h1>
+            {/* Main Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="font-heading text-4xl md:text-6xl lg:text-7xl font-semibold text-cream-light leading-tight mb-6"
+            >
+              Where Tradition Meets{" "}
+              <span className="italic text-gradient-gold">Artistry</span>
+            </motion.h1>
+         </div>
 
           {/* Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed"
+            className="text-cream/80 text-lg md:text-xl max-w-2xl mb-10 font-light leading-relaxed"
           >
             Exquisite henna designs for weddings, festivals, and life's most
             precious celebrations. Creating timeless memories with every stroke.
@@ -140,7 +142,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-start gap-4"
           >
             <Button
               variant="gold"

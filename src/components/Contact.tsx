@@ -51,7 +51,7 @@ const Contact = () => {
 
   const openWhatsApp = () => {
     window.open(
-      "https://wa.me/8801712345678?text=Hello! I'm interested in booking a mehendi appointment.",
+      "https://wa.me/8801785205747?text=Hello! I'm interested in booking a mehendi appointment.",
       "_blank"
     );
   };
@@ -253,7 +253,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-muted-foreground">Call Us</p>
                     <p className="text-foreground font-medium group-hover:text-secondary transition-colors">
-                      +880 1712-345678
+                      +880 1785-205747
                     </p>
                   </div>
                 </a>
@@ -268,7 +268,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-muted-foreground">Email Us</p>
                     <p className="text-foreground font-medium group-hover:text-secondary transition-colors">
-                      fatima@mehendi.com
+                      farhanafardous55255@gmail.com
                     </p>
                   </div>
                 </a>
@@ -280,7 +280,7 @@ const Contact = () => {
                   <div>
                     <p className="text-sm text-muted-foreground">Location</p>
                     <p className="text-foreground font-medium">
-                      Dhaka, Bangladesh
+                      Rajshahi, Bangladesh
                     </p>
                     <p className="text-sm text-muted-foreground">
                       (Home service available across the city)

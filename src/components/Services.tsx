@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 const services = [
   {
     icon: Crown,
-    title: "Bridal Mehendi",
+    title: "Bridal Mehedi",
     description:
       "Complete bridal henna package with intricate designs for hands and feet. Make your special day unforgettable with our signature dulhan designs.",
-    price: "Starting ৳15,000",
+    price: "Starting ৳2,200",
     highlight: true,
   },
   {

@@ -7,7 +7,7 @@ const testimonials = [
     name: "Aisha Rahman",
     role: "Bride",
     content:
-      "Fatima's artistry made my wedding day absolutely magical. The intricate bridal design she created was beyond my dreams. Every guest complimented my mehendi!",
+      "Bristi's artistry made my wedding day absolutely magical. The intricate bridal design she created was beyond my dreams. Every guest complimented my mehendi!",
     rating: 5,
     event: "Wedding Ceremony",
   },
@@ -25,7 +25,7 @@ const testimonials = [
     name: "Sabrina Ahmed",
     role: "Bride's Mother",
     content:
-      "The entire bridal party was thrilled with their designs. Fatima took care of everyone with such patience and grace. Highly recommend!",
+      "The entire bridal party was thrilled with their designs. Bristi took care of everyone with such patience and grace. Highly recommend!",
     rating: 5,
     event: "Holud Ceremony",
   },

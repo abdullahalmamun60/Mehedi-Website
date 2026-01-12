@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import artistPortrait from "@/assets/artist-portrait.jpg";
+import artistPortrait from "@/assets/artist.jpeg";
 import { Award, Clock, Heart, Star } from "lucide-react";
 
 const stats = [
@@ -79,14 +79,14 @@ const About = () => {
               About the Artist
             </span>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-primary mt-2 mb-6">
-              Meet Fatima
+              Meet Bristi
             </h2>
 
             <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p className="text-lg">
                 <span className="text-primary font-medium">Assalamu Alaikum!</span> I'm
-                Fatima, a professional Mehendi artist based in Dhaka, Bangladesh.
-                My journey with henna art began over a decade ago, inspired by the
+                Bristy, a professional Mehedi artist based in Rajshahi, Bangladesh.
+                My journey with henna art began over 2 years ago, inspired by the
                 rich traditions of South Asian culture.
               </p>
               <p>
@@ -97,7 +97,7 @@ const About = () => {
               <p>
                 I specialize in{" "}
                 <span className="text-secondary font-medium">
-                  traditional Bengali bridal mehendi
+                  traditional Bengali bridal mehedi
                 </span>
                 ,{" "}
                 <span className="text-secondary font-medium">modern Arabic patterns</span>
@@ -122,7 +122,7 @@ const About = () => {
                 "Each stroke of henna carries centuries of tradition, love, and
                 blessings for the beautiful journey ahead."
               </p>
-              <p className="text-secondary font-medium mt-2">— Fatima</p>
+              <p className="text-secondary font-medium mt-2">— Bristi</p>
             </motion.div>
 
             {/* Stats */}
