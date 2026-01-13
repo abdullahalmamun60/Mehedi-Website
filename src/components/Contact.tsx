@@ -12,6 +12,7 @@ const Contact = () => {
     name: "",
     phone: "",
     email: "",
+    location: "",
     eventDate: "",
     message: "",
   });
@@ -21,22 +22,46 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd4ViR6Rtso37fgYsbKB_JEdZ7ITW9H1rD-6HQceJjA5Bhg-A/formResponse";
+    
+    const formDataToSubmit = new FormData();
+    formDataToSubmit.append("entry.1692659834", formData.name);
+    formDataToSubmit.append("entry.1680461864", formData.phone);
+    formDataToSubmit.append("entry.2032809152", formData.email);
+    formDataToSubmit.append("entry.22013729", formData.location);
+    formDataToSubmit.append("entry.569092620", formData.eventDate);
+    formDataToSubmit.append("entry.483940709", formData.message);
 
-    toast({
-      title: "Booking Request Sent! ✨",
-      description:
-        "Thank you for your interest. We'll get back to you within 24 hours.",
-    });
+    try {
+      // Submit to Google Forms
+      await fetch(GOOGLE_FORM_ACTION_URL, {
+        method: "POST",
+        body: formDataToSubmit,
+        mode: "no-cors", // Required for Google Forms
+      });
 
-    setFormData({
-      name: "",
-      phone: "",
-      email: "",
-      eventDate: "",
-      message: "",
-    });
+      toast({
+        title: "Booking Request Sent! ✨",
+        description:
+          "Thank you for your interest. We'll get back to you within 24 hours.",
+      });
+
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        location: "",
+        eventDate: "",
+        message: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    }
+
     setIsSubmitting(false);
   };
 
@@ -155,21 +180,39 @@ const Contact = () => {
                   </div>
                   <div>
                     <label
-                      htmlFor="eventDate"
+                      htmlFor="location"
                       className="block text-sm font-medium text-foreground mb-2"
                     >
-                      Event Date *
+                      Location *
                     </label>
                     <Input
-                      id="eventDate"
-                      name="eventDate"
-                      type="date"
-                      value={formData.eventDate}
+                      id="location"
+                      name="location"
+                      value={formData.location}
                       onChange={handleChange}
+                      placeholder="Your city or area"
                       required
                       className="border-border focus:border-secondary"
                     />
                   </div>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="eventDate"
+                    className="block text-sm font-medium text-foreground mb-2"
+                  >
+                    Event Date *
+                  </label>
+                  <Input
+                    id="eventDate"
+                    name="eventDate"
+                    type="date"
+                    value={formData.eventDate}
+                    onChange={handleChange}
+                    required
+                    className="border-border focus:border-secondary"
+                  />
                 </div>
 
                 <div>
@@ -297,7 +340,7 @@ const Contact = () => {
               </h3>
               <div className="flex gap-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/mehedibybristi/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 flex items-center justify-center hover:scale-110 transition-transform group"
@@ -305,7 +348,7 @@ const Contact = () => {
                   <Instagram className="w-5 h-5 text-white" />
                 </a>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=61567641751974"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center hover:scale-110 transition-transform group"
@@ -316,7 +359,7 @@ const Contact = () => {
             </div>
 
             {/* Map placeholder */}
-            <div className="bg-card rounded-xl h-48 flex items-center justify-center border border-border shadow-card overflow-hidden">
+            {/* <div className="bg-card rounded-xl h-48 flex items-center justify-center border border-border shadow-card overflow-hidden">
               <div className="text-center">
                 <MapPin className="w-8 h-8 text-secondary mx-auto mb-2" />
                 <p className="text-sm font-medium text-primary">Dhaka, Bangladesh</p>
@@ -324,7 +367,7 @@ const Contact = () => {
                   Serving all areas of the city
                 </p>
               </div>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

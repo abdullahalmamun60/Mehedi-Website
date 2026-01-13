@@ -41,7 +41,7 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex gap-3">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/mehedibybristi/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-xl bg-primary-foreground/10 flex items-center justify-center hover:bg-secondary/30 transition-colors group"

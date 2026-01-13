@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -51,11 +52,14 @@ const Header = () => {
               e.preventDefault();
               scrollToSection("#home");
             }}
-            className={`font-heading text-xl md:text-2xl font-semibold transition-colors ${
+            className={`font-heading text-lg md:text-xl font-semibold transition-colors ${
               isScrolled ? "text-primary" : "text-cream-light"
             }`}
           >
-            <span className="text-secondary">✦</span> Mehedi by Bristi
+            <div className="flex items-center gap-2">
+              <img src={logo} alt="Mehedi by Bristi" className="h-12 md:h-14" />
+              <span>Mehedi by Bristi</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
