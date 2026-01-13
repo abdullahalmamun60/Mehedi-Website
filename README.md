@@ -1,73 +1,46 @@
-# Welcome to your Lovable project
+🌸 Mehendi Artistry – Premium South Asian Wedding Website
 
-## Project info
+A fully responsive, elegant website designed for a South Asian mehendi & bridal artistry brand.
+The project blends traditional cultural aesthetics with a modern, luxury web experience, inspired by premium wedding and beauty portfolios.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🎨 Design & Aesthetic
 
-## How can I edit this code?
+Rich mehendi brown, luxury gold, soft cream, and deep burgundy color palette
 
-There are several ways of editing your application.
+Elegant serif headings with modern, clean body typography
 
-**Use Lovable**
+Floating mehendi patterns, floral accents, and subtle animations
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+Warm, premium, and culturally inspired visual style
 
-Changes made via Lovable will be committed automatically to this repo.
+🧱 Website Sections
 
-**Use your preferred IDE**
+Hero Section – Full-screen introduction with artistic mehendi visuals
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+About – Brand story and cultural inspiration
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Services – Bridal, party, custom, and event mehendi offerings
 
-Follow these steps:
+Gallery – Filterable image gallery with lightbox previews
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Contact – WhatsApp integration for quick booking
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Floating WhatsApp Button – Always accessible for instant communication
 
-# Step 3: Install the necessary dependencies.
-npm i
+⚙️ Features
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Mobile-first responsive design
 
-**Edit a file directly in GitHub**
+Smooth scrolling and hover animations
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Gallery category filters
 
-**Use GitHub Codespaces**
+WhatsApp chat integration
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Clean, modern UI/UX
 
-## What technologies are used for this project?
+Fast and lightweight performance
 
-This project is built with:
+🎯 Purpose
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This website is built to showcase mehendi artistry in a premium, professional way, helping artists attract clients, display their work beautifully, and simplify the booking process.
